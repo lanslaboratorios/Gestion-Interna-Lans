@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
       .query(req.query.consulta)
   }).then(result => {
     sql.close()
-    res.send(JSON.stringify(result.recordset))
+    res.json(result.recordset)
   }).catch(err => {
     console.dir(err)
     sql.close()
