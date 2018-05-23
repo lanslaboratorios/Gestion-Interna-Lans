@@ -34,6 +34,7 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', function (req, res) {
+    console.dir(req);
     sql.connect(DbConnectionString).then(pool => {
       return pool.request()
         .query(`select  Estatus_del_Socio from DatosSocios_Portales_View where ID_Socio = ${req.body.id}`)
