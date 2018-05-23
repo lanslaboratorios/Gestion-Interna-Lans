@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var sql = require('mssql')
 // Conexión a la BD LABCORE
-const DbConnectionString = 'mssql://labcore:labcore@192.168.1.10:1433/LabCore'
+const DbConnectionString = 'mssql://labcore:labcore@104.130.11.7:1433/LabCore'
 // error Handler
 sql.on('error', err => {
   console.dir(err)
@@ -34,7 +34,6 @@ router.get('/', function (req, res) {
 })
 
 router.post('/', function (req, res) {
-    console.dir(req);
     sql.connect(DbConnectionString).then(pool => {
       return pool.request()
         .query(`select  Estatus_del_Socio from DatosSocios_Portales_View where ID_Socio = ${req.body.id}`)
