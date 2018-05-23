@@ -41,13 +41,13 @@ router.post('/', function (req, res) {
     }).then(result => {
       sql.close() 
         if( result.rowsAffected == 0){
-        res.send('-1');}
+        res.send('-1');} //no existe
         else if(result.rowsAffected >1){
-           res.send('-2'); 
+           res.send('-2'); // duplicado
         }else if( result.recordset[0].Estatus_del_Socio == 'Activo'){
-           res.send('1');
+           res.send('1'); //permiso
        }else{
-           res.send('0');
+           res.send('0'); //permiso'
        }
     }).catch(err => {
       console.dir(err)
