@@ -13,7 +13,7 @@ sql.on('error', err => {
 router.get('/', function (req, res) {
   sql.connect(DbConnectionString).then(pool => {
     return pool.request()
-      .query(`select  Estatus_del_Socio from DatosSocios_Portales_View where ID_Socio = ${req.query.id}`)
+      .query(`select  Estatus_del_Socio from DatosSocios_Portales_View where Numero_de_Socio = ${req.query.id}`)
       
   }).then(result => {
     sql.close()
@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
     sql.connect(DbConnectionString).then(pool => {
       return pool.request()
-        .query(`select  Estatus_del_Socio from DatosSocios_Portales_View where ID_Socio = ${req.body.id}`)
+        .query(`select  Estatus_del_Socio from DatosSocios_Portales_View where Numero_de_Socio = ${req.body.id}`)
         
     }).then(result => {
       sql.close() 
