@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 var sql = require('mssql')
 // Conexión a la BD LABCORE
-const DbConnectionString = 'mssql://labcore:labcore@192.168.1.10:1433/LabCore'
+const DbConnectionString = 'mssql://labcore:labcore@192.168.1.10/LANS:1433/LabCore'
 
 // error Handler
 sql.on('error', err => {
